@@ -7,13 +7,13 @@ const mongoose = require("mongoose");
 //   useUnifiedTopology: true,
 // });
 
-require("dotenv").config();
+//require("dotenv").config();
 
-const mongoURI = process.env.MONGO_URI;
+//const mongo_URI = process.env.MONGO_URI;
 
-console.log("MONGO_URI:", process.env.MONGO_URI);
+console.log("MONGO_URI:", mongo_URI);
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(mongo_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
