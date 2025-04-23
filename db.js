@@ -1,28 +1,22 @@
 const mongoose = require("mongoose");
 
-//const mongoURI = "mongodb://localhost:27017/milkDB"; // Change to your database name
+const mongoURI = process.env.MONGO_URI;
 
-// mongoose.connect(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
+if (!mongoURI) {
+  console.error("❌ MONGO_URI is not defined");
+  process.exit(1);
+}
 
-//require("dotenv").config();
-
-//const mongo_URI = process.env.MONGO_URI;
-console.log("MONGO_URI:", process.env.MONGO_URI); // ✅ this works
-
-//console.log("MONGO_URI:", MONGO_URI);
-
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
+
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 db.once("open", () => {
-  console.log("Connected to MongoDB Atlas");
+  console.log("✅ Connected to MongoDB Atlas");
 });
 
 module.exports = { mongoose, db };
