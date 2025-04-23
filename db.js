@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+require("dotenv").config(); // safe for local, ignored in Railway
+
 const mongoURI = process.env.MONGO_URI;
 
 if (!mongoURI) {
