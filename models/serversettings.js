@@ -1,4 +1,4 @@
-const { mongoose } = require("../db");
+const mongoose = require("mongoose");
 
 function createServerSettingsModel(collectionName) {
   const modelName = `${collectionName}_ServerSettings`; // unique model name

@@ -22,7 +22,7 @@
 // const Record = mongoose.model("Record", recordSchema);
 // module.exports = Record;
 
-const { mongoose } = require("../db");
+const mongoose = require("mongoose");
 
 const recordSchema = new mongoose.Schema({
   DEVICEID: String,

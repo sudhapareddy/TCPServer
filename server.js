@@ -1,3 +1,6 @@
+require("dotenv").config();
+require("./db"); // connects to MongoDB
+
 const net = require("net");
 
 const sendServerSettings = require("./getServerSettings");

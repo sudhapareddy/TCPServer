@@ -1,4 +1,4 @@
-const { mongoose } = require("../db");
+const mongoose = require("mongoose");
 
 //code, milkType, commType, memberName, contactNo, status
 
