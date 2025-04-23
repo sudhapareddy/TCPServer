@@ -1,16 +1,17 @@
-# Use Node.js base image
+# Use a stable Node.js image
 FROM node:18
 
-# Set working directory
+# Create app directory
 WORKDIR /app
 
-# Copy project files
-COPY . .
-
-# Install dependencies
+# Install app dependencies
+COPY package*.json ./
 RUN npm install
 
-# Expose TCP port used by your server
+# Copy app source
+COPY . .
+
+# Expose the port your TCP server uses (e.g., 5000)
 EXPOSE 3699
 
 # Start the server
