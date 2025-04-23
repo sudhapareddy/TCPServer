@@ -1,5 +1,7 @@
-//require("dotenv").config();
+require("dotenv").config();
 require("./db"); // connects to MongoDB
+
+console.log("sudha");
 
 const net = require("net");
 
