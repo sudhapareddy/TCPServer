@@ -85,6 +85,7 @@ const server = net.createServer((socket) => {
 
       if (!socket.deviceId) {
         socket.write("#DEVICE NOT REGISTERED YET!\n");
+        console.log("#DEVICE NOT REGISTERED YET!\n");
         return;
       }
 
