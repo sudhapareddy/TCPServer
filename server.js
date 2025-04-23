@@ -29,6 +29,8 @@ function extractDeviceId(message) {
   return match ? match[1] : null;
 }
 
+console.log("📦 All env vars:", JSON.stringify(process.env, null, 2));
+
 const server = net.createServer((socket) => {
   console.log(
     `✅ IoT Device Connected: ${socket.remoteAddress}:${socket.remotePort}`
