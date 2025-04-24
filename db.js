@@ -4,6 +4,8 @@ require("dotenv").config(); // safe for local, ignored in Railway
 
 const mongoURI = process.env.MONGO_URI;
 
+console.log("MONGO_URI (sanitized):", mongoURI?.slice(0, 30) + "...");
+
 if (!mongoURI) {
   console.error("❌ MONGO_URI is not defined");
   process.exit(1);
