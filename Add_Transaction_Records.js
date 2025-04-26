@@ -105,6 +105,8 @@ async function saveRecords(data, socket) {
         RECORDTYPE: recordType,
       });
 
+      console.log("Record saving...")
+
       await newRecord.save();
       console.log(`Record #${recordNo + 1} saved successfully.`);
       console.log(
