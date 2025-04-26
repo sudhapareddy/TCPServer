@@ -11,6 +11,11 @@ function combineBytesFloat(msb, lsb) {
   return (value / 100).toFixed(2);
 }
 
+function combineBytesFloatSingle(msb, lsb) {
+  const value = (msb << 8) | lsb;
+  return (value / 10).toFixed(1);
+}
+
 function combineFourBytesToFixed(b1, b2, b3, b4) {
   const value = (b1 << 24) | (b2 << 16) | (b3 << 8) | b4;
   return (value / 100).toFixed(2);
@@ -56,11 +61,11 @@ async function saveRecords(data, socket) {
         .padStart(2, "0")}`;
       const analyzerMode = data[startIndex + 15] === 0 ? "MANUAL" : "AUTO";
       const weightMode = data[startIndex + 16] === 0 ? "MANUAL" : "AUTO";
-      const clr = combineBytesFloat(
+      const clr = combineBytesFloatSingle(
         data[startIndex + 18],
         data[startIndex + 17]
       );
-      const water = combineBytesFloat(
+      const water = combineBytesFloatSingle(
         data[startIndex + 20],
         data[startIndex + 19]
       );
