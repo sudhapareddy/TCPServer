@@ -82,7 +82,8 @@ async function saveRecords(data, socket) {
       );
       const recordType = String.fromCharCode(data[startIndex + 28]);
 
-      const collectionName = `${socket.deviceId}_records`; // You can generate this dynamically
+      //const collectionName = `${socket.deviceId}_records`; // You can generate this dynamically
+      const collectionName = `records`; // You can generate this dynamically
       const Record = getRecordModel(collectionName);
 
       const newRecord = new Record({
@@ -105,7 +106,7 @@ async function saveRecords(data, socket) {
         RECORDTYPE: recordType,
       });
 
-      console.log("Record saving...")
+      console.log("Record saving...");
 
       await newRecord.save();
       console.log(`Record #${recordNo + 1} saved successfully.`);
